@@ -1,0 +1,1 @@
+/Users/robert/GitHub/coding-kata/rust-exercises/target/debug/rust-exercises: /Users/robert/GitHub/coding-kata/rust-exercises/src/kyu8_fund.rs /Users/robert/GitHub/coding-kata/rust-exercises/src/main.rs
