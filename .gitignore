@@ -1,1 +1,3 @@
-rust-exercises/target/
+./rust-exercises/target/
+./rust-exercises/Cargo.lock
+./rust-exercises/debug/
