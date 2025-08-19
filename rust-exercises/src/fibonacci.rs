@@ -25,18 +25,30 @@ pub fn fibonacci_iterative(n: &u128) -> u128 {
     curr
 }
 
+pub fn fibonacci_recursive_tail(n: &u128) -> u128 {
+    fn f(n: u128, a: u128, b: u128) -> u128 {
+        match n {
+            0 => a,
+            _ => f(n - 1, a + b, a),
+        }
+    }
+    f(*n, 0, 1)
+}
+
 pub fn compare_methods() {
     use std::time::Instant;
 
-    let n: u128 = 10;
+    let n: u128 = 150;
+
     let handle = thread::spawn(move || {
         let start_thread = Instant::now();
-        let result_thread = fibonacci_recursive(&n);
+        let result_thread = fibonacci_recursive_tail(&n);
         let elapsed_thread = start_thread.elapsed();
         println!(
-            "Took {elapsed_thread:.2?} to recursively calculate {n}th fibonacci: {result_thread}"
+            "Took {elapsed_thread:.2?} to (tail) recursively calculate {n}th fibonacci: {result_thread}"
         );
     });
+
     let start = Instant::now();
     let result = fibonacci_iterative(&n);
     let elapsed = start.elapsed();
